@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20160620 17:20:50.774" generator="Robot 2.9.2 (Python 2.7.6 on linux2)">
+<suite source="/u02/robot/tests.robot" id="s1" name="Tests">
+<test id="s1-t1" name="Get Method Case">
+<kw name="Get Method" library="mylib">
+<doc>Args : None</doc>
+<assign>
+<var>${object}</var>
+</assign>
+<msg timestamp="20160620 17:20:50.914" level="INFO">Starting new HTTP connection (1): httpbin.org</msg>
+<msg timestamp="20160620 17:20:51.205" level="INFO">${object} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20160620 17:20:51.205" starttime="20160620 17:20:50.905"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${object.status_code}</arg>
+<arg>${OKCODE}</arg>
+</arguments>
+<msg timestamp="20160620 17:20:51.207" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20160620 17:20:51.207" starttime="20160620 17:20:51.205"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${object.headers['content-type']}</arg>
+<arg>${CONTTYPE}</arg>
+</arguments>
+<msg timestamp="20160620 17:20:51.208" level="INFO">Argument types are:
+&lt;type 'str'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20160620 17:20:51.208" starttime="20160620 17:20:51.207"></status>
+</kw>
+<status status="PASS" endtime="20160620 17:20:51.209" critical="yes" starttime="20160620 17:20:50.904"></status>
+</test>
+<test id="s1-t2" name="Templated Auth Case">
+<kw name="The result of authenticating john doe should be ${NOTAUTHCODE}">
+<kw name="Auth Method" library="mylib">
+<doc>Args : User's login and password</doc>
+<arguments>
+<arg>${user}</arg>
+<arg>${passwd}</arg>
+</arguments>
+<assign>
+<var>${object}</var>
+</assign>
+<msg timestamp="20160620 17:20:51.214" level="INFO">Starting new HTTP connection (1): httpbin.org</msg>
+<msg timestamp="20160620 17:20:51.498" level="INFO">${object} = &lt;Response [401]&gt;</msg>
+<status status="PASS" endtime="20160620 17:20:51.499" starttime="20160620 17:20:51.211"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${object.status_code}</arg>
+<arg>${STATCODE}</arg>
+</arguments>
+<msg timestamp="20160620 17:20:51.500" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20160620 17:20:51.500" starttime="20160620 17:20:51.499"></status>
+</kw>
+<status status="PASS" endtime="20160620 17:20:51.500" starttime="20160620 17:20:51.210"></status>
+</kw>
+<kw name="The result of authenticating vasiliy pupkin should be ${NOTAUTHCODE}">
+<kw name="Auth Method" library="mylib">
+<doc>Args : User's login and password</doc>
+<arguments>
+<arg>${user}</arg>
+<arg>${passwd}</arg>
+</arguments>
+<assign>
+<var>${object}</var>
+</assign>
+<msg timestamp="20160620 17:20:51.504" level="INFO">Starting new HTTP connection (1): httpbin.org</msg>
+<msg timestamp="20160620 17:20:51.790" level="INFO">${object} = &lt;Response [401]&gt;</msg>
+<status status="PASS" endtime="20160620 17:20:51.790" starttime="20160620 17:20:51.501"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${object.status_code}</arg>
+<arg>${STATCODE}</arg>
+</arguments>
+<msg timestamp="20160620 17:20:51.792" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20160620 17:20:51.792" starttime="20160620 17:20:51.790"></status>
+</kw>
+<status status="PASS" endtime="20160620 17:20:51.792" starttime="20160620 17:20:51.501"></status>
+</kw>
+<kw name="The result of authenticating user passwd should be ${OKCODE}">
+<kw name="Auth Method" library="mylib">
+<doc>Args : User's login and password</doc>
+<arguments>
+<arg>${user}</arg>
+<arg>${passwd}</arg>
+</arguments>
+<assign>
+<var>${object}</var>
+</assign>
+<msg timestamp="20160620 17:20:51.796" level="INFO">Starting new HTTP connection (1): httpbin.org</msg>
+<msg timestamp="20160620 17:20:52.066" level="INFO">${object} = &lt;Response [401]&gt;</msg>
+<status status="PASS" endtime="20160620 17:20:52.066" starttime="20160620 17:20:51.793"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${object.status_code}</arg>
+<arg>${STATCODE}</arg>
+</arguments>
+<msg timestamp="20160620 17:20:52.068" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<msg timestamp="20160620 17:20:52.068" level="FAIL">401 != 200</msg>
+<status status="FAIL" endtime="20160620 17:20:52.068" starttime="20160620 17:20:52.067"></status>
+</kw>
+<status status="FAIL" endtime="20160620 17:20:52.068" starttime="20160620 17:20:51.793"></status>
+</kw>
+<status status="FAIL" endtime="20160620 17:20:52.069" critical="yes" starttime="20160620 17:20:51.209">401 != 200</status>
+</test>
+<test id="s1-t3" name="Stream Method Case">
+<kw name="Calling the stream method with 5 argument should contain ${OKCODE} response and 5 lines">
+<kw name="Stream Method" library="mylib">
+<doc>Args : Number of lines</doc>
+<arguments>
+<arg>${num}</arg>
+</arguments>
+<assign>
+<var>${object}</var>
+</assign>
+<msg timestamp="20160620 17:20:52.073" level="INFO">Starting new HTTP connection (1): httpbin.org</msg>
+<msg timestamp="20160620 17:20:52.351" level="INFO">${object} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20160620 17:20:52.351" starttime="20160620 17:20:52.071"></status>
+</kw>
+<kw name="Get Line Count" library="String">
+<doc>Returns and logs the number of lines in the given string.</doc>
+<arguments>
+<arg>${object.text}</arg>
+</arguments>
+<assign>
+<var>${length}</var>
+</assign>
+<msg timestamp="20160620 17:20:52.363" level="INFO">5 lines</msg>
+<msg timestamp="20160620 17:20:52.363" level="INFO">${length} = 5</msg>
+<status status="PASS" endtime="20160620 17:20:52.363" starttime="20160620 17:20:52.352"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${object.status_code}</arg>
+<arg>${STATCODE}</arg>
+</arguments>
+<msg timestamp="20160620 17:20:52.364" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20160620 17:20:52.364" starttime="20160620 17:20:52.363"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${length}</arg>
+<arg>${linesnum}</arg>
+</arguments>
+<msg timestamp="20160620 17:20:52.365" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20160620 17:20:52.366" starttime="20160620 17:20:52.365"></status>
+</kw>
+<status status="PASS" endtime="20160620 17:20:52.366" starttime="20160620 17:20:52.070"></status>
+</kw>
+<kw name="Calling the stream method with 0 argument should contain ${OKCODE} response and 0 lines">
+<kw name="Stream Method" library="mylib">
+<doc>Args : Number of lines</doc>
+<arguments>
+<arg>${num}</arg>
+</arguments>
+<assign>
+<var>${object}</var>
+</assign>
+<msg timestamp="20160620 17:20:52.370" level="INFO">Starting new HTTP connection (1): httpbin.org</msg>
+<msg timestamp="20160620 17:20:52.656" level="INFO">${object} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20160620 17:20:52.656" starttime="20160620 17:20:52.367"></status>
+</kw>
+<kw name="Get Line Count" library="String">
+<doc>Returns and logs the number of lines in the given string.</doc>
+<arguments>
+<arg>${object.text}</arg>
+</arguments>
+<assign>
+<var>${length}</var>
+</assign>
+<msg timestamp="20160620 17:20:52.657" level="INFO">0 lines</msg>
+<msg timestamp="20160620 17:20:52.657" level="INFO">${length} = 0</msg>
+<status status="PASS" endtime="20160620 17:20:52.657" starttime="20160620 17:20:52.656"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${object.status_code}</arg>
+<arg>${STATCODE}</arg>
+</arguments>
+<msg timestamp="20160620 17:20:52.659" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20160620 17:20:52.659" starttime="20160620 17:20:52.658"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${length}</arg>
+<arg>${linesnum}</arg>
+</arguments>
+<msg timestamp="20160620 17:20:52.660" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20160620 17:20:52.660" starttime="20160620 17:20:52.659"></status>
+</kw>
+<status status="PASS" endtime="20160620 17:20:52.660" starttime="20160620 17:20:52.366"></status>
+</kw>
+<kw name="Calling the stream method with 100 argument should contain ${OKCODE} response and 100 lines">
+<kw name="Stream Method" library="mylib">
+<doc>Args : Number of lines</doc>
+<arguments>
+<arg>${num}</arg>
+</arguments>
+<assign>
+<var>${object}</var>
+</assign>
+<msg timestamp="20160620 17:20:52.669" level="INFO">Starting new HTTP connection (1): httpbin.org</msg>
+<msg timestamp="20160620 17:20:53.114" level="INFO">${object} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20160620 17:20:53.114" starttime="20160620 17:20:52.667"></status>
+</kw>
+<kw name="Get Line Count" library="String">
+<doc>Returns and logs the number of lines in the given string.</doc>
+<arguments>
+<arg>${object.text}</arg>
+</arguments>
+<assign>
+<var>${length}</var>
+</assign>
+<msg timestamp="20160620 17:20:53.116" level="INFO">100 lines</msg>
+<msg timestamp="20160620 17:20:53.117" level="INFO">${length} = 100</msg>
+<status status="PASS" endtime="20160620 17:20:53.117" starttime="20160620 17:20:53.115"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${object.status_code}</arg>
+<arg>${STATCODE}</arg>
+</arguments>
+<msg timestamp="20160620 17:20:53.118" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20160620 17:20:53.118" starttime="20160620 17:20:53.117"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${length}</arg>
+<arg>${linesnum}</arg>
+</arguments>
+<msg timestamp="20160620 17:20:53.119" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20160620 17:20:53.119" starttime="20160620 17:20:53.118"></status>
+</kw>
+<status status="PASS" endtime="20160620 17:20:53.119" starttime="20160620 17:20:52.661"></status>
+</kw>
+<status status="PASS" endtime="20160620 17:20:53.120" critical="yes" starttime="20160620 17:20:52.069"></status>
+</test>
+<status status="FAIL" endtime="20160620 17:20:53.121" starttime="20160620 17:20:50.775"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="2">Critical Tests</stat>
+<stat fail="1" pass="2">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="1" id="s1" name="Tests" pass="2">Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
